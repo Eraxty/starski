@@ -1,5 +1,7 @@
 from astronomy import get_objects
 from renderer import render
+import time
+import os
 
 
 def input_coordinate(name, positive, negative):
@@ -18,9 +20,21 @@ def input_coordinate(name, positive, negative):
     return decimal
 
 
+# Ask once
 lat = input_coordinate("Latitude", "N", "S")
 lon = input_coordinate("Longitude", "E", "W")
-facing = float(input("\nFacing (0-359°): "))
+facing = float(input("\nFacing (0-359°): ")) % 360
 
-objects = get_objects(lat, lon)
-render(objects, facing)
+# Update forever
+print("\033[?25l", end="")
+try:
+    while True:
+        objects = get_objects(lat, lon)
+        print("\033[2J\033[H", end="")
+        render(objects, facing)
+        time.sleep(1)
+
+except KeyboardInterrupt:
+    pass
+finally:
+    print("\033[?25h", end="")
