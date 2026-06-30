@@ -5,5 +5,5 @@ class obj:
     name: str
     altitude: float
     azimuth: float
-    symbol: str
     magnitude: float = 0.0
+    type: str = "star"  
