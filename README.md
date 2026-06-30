@@ -107,6 +107,9 @@ Idk i wanted to watch the sky from my terminal
 *(I hate touching grass.)*
 ---
 
+## Special thanks
+special thanks to my best friend chatgpt wwho helped me by explaining skyfeild and the complex math and formatting the readme 
+*only formatting*
 ## License
 
 MIT
